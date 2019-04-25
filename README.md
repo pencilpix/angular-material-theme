@@ -21,17 +21,17 @@ helpers that helps in applications styling.
     ```scss
     // settings of padding and base font size
     $font-size-base: 16; // by default
-    $font-size-html: unquote('#{$font-size-base}px')
+    $font-size-html: unquote('#{$font-size-base}px');
 
     // $primary, $accent, $warn, $gray
     // note gray is not used in theming but will be used
     // in global settings, variables, mixins and functions.
-    @include override-palettes($mat-indigo, $mat-yellow, $mat-red, $mat-gray)
+    @include override-palettes($mat-indigo, $mat-yellow, $mat-red, $mat-gray);
 
     // or with custom tones
     // will be compiled
     // $primary: mat-palette($mat-indigo, A400, A500)
-    @include override-palettes($mat-indigo A400 A500, $mat-yellow, $mat-red, $mat-gray)
+    @include override-palettes($mat-indigo A400 A500, $mat-yellow, $mat-red, $mat-gray);
     ```
 
 4. at the global `styles.scss` that is in your app root, import the aforementioned file `theme.scss`
@@ -69,12 +69,12 @@ full example
 
 ```scss
 // app/src/styles/theme.scss
-@import '~@angular/material/theming'
-@import '~angular-material-theme/src/theming'
+@import '~@angular/material/theming';
+@import '~@pencilpix/angular-material-theme/src/theming';
 
 /* overriding palettes and variables */
 $font-size-base: 16; /* by default */
-$font-size-html: unquote('#{$font-size-base}px')
+$font-size-html: unquote('#{$font-size-base}px');
 @include override-palettes($mat-purple, $mat-amber, $mat-red, $mat-gray);
 
 
