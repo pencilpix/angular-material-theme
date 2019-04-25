@@ -46,9 +46,9 @@ helpers that helps in applications styling.
      @include init-material-theme($dark-theme);
    }
 
-  .light-theme {
+   .light-theme {
      @include init-material-theme($theme);
-  }
+   }
    ```
 
 5. at `angular.json` add the following lines at `build.options`:
