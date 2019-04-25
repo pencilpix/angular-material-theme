@@ -1,0 +1,60 @@
+@mixin adjust-size($size) {
+  width: $size;
+  min-width: $size;
+  height: $size;
+  min-height: $size;
+  line-height: $size;
+}
+@mixin init-avatar-layout($theme) {
+  $sizes: get($theme, size);
+  $x: pxToRem(24);
+  $xx: pxToRem(32);
+  $xxx: pxToRem(42);
+  $xxxx: pxToRem(54);
+
+
+  %avatar {
+    @include adjust-size($xx);
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+
+    &__img {
+      width: 100%;
+      height: auto;
+      min-width: 100%;
+      min-height: 100%;
+    }
+
+    &__icon {
+      @include adjust-size($xx);
+      text-align: center;
+    }
+
+    &__icon,
+    &__img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+
+    &--small,
+    &--small %avatar__icon{
+      @include adjust-size($x);
+    }
+
+    &--medium,
+    &--medium %avatar__icon{
+      @include adjust-size($xxx);
+    }
+
+    &--large,
+    &--large %avatar__icon {
+      @include adjust-size($xxxx);
+    }
+  }
+}
+

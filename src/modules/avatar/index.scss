@@ -1,0 +1,8 @@
+@import './layout';
+@import './skin';
+
+@mixin init-avatar($theme) {
+  @include init-avatar-layout($theme);
+  @include init-avatar-skin($theme);
+}
+
