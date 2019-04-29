@@ -35,19 +35,20 @@ helpers that helps in applications styling.
     ```
 
 4. at the global `styles.scss` that is in your app root, import the aforementioned file `theme.scss`
-   (created file in step 1) then include `init-material-theme`
+   (created file in step 1) then include `init-mat-theme`
 
    ```scss
    // this would initialize light theme by default
-   @include init-material-theme();
+   @include mat-core();
+   @include init-mat-theme();
 
    // to multiple themes
    .dark-theme {
-     @include init-material-theme($dark-theme);
+     @include init-mat-theme($dark-theme);
    }
 
    .light-theme {
-     @include init-material-theme($theme);
+     @include init-mat-theme($theme);
    }
    ```
 
@@ -81,7 +82,8 @@ $font-size-html: unquote('#{$font-size-base}px');
 
 // app/src/styles.scss
 @import 'theme';
-@include init-material-theme();
+@include mat-core();
+@include init-mat-theme();
 
 
 // at any scss/sass file

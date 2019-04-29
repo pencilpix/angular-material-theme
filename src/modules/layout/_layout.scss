@@ -1,0 +1,29 @@
+@mixin init-layout-layout() {
+  $padding: pxToRem(2 * $space-base, $space-base);
+
+  .p-layout {
+    &,
+    & * {
+      box-sizing: border-box;
+    }
+
+    &,
+    &__sidenav-container{
+      display: flex;
+      flex-direction: column;
+      min-width: 100%;
+      width: 100%;
+      min-height: 100%;
+      flex: 1;
+    }
+
+    &__page {
+      padding: $padding;
+    }
+
+    &__spacer {
+      flex: 1;
+    }
+  }
+}
+

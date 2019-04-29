@@ -83,8 +83,6 @@ $dark-theme: map-merge(map-merge($dark-theme, $typo), (name: dark));
 //              default is light.
 ///////////////////////////////////////////////////////////
 @mixin init-mat-theme($theme-to-init: $theme) {
-  @include mat-core();
   @include angular-material-theme($theme-to-init);
-  @include init-modules($theme-to-init);
 }
 

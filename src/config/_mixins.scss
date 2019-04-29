@@ -62,7 +62,7 @@
 // @param {boolean} $strict if should use important flag.
 // @param {string} $depth whether the depth of shadow is very huge or normal
 ///////////////////////////////////////////////////////////
-@mixin huge-card-shadow($clr: rgb(0, 0, 0), $a1: .05, $a2: .08, $a3: .03, $strict: null, $depth: normal) {
+@mixin huge-shadow($clr: rgb(0, 0, 0), $a1: .05, $a2: .08, $a3: .03, $strict: null, $depth: normal) {
   $important: '';
   $shadow1: '0 8px 16px -3px #{rgba($clr, $a3)}, ';
   $shadow2: '0 12px 24px -6px #{rgba($clr, $a1)}, ';
@@ -92,7 +92,7 @@
 // @param {number} $a3 alpha of the third layer of the shadow default .03
 // @param {boolean} $strict if should use important flag.
 ///////////////////////////////////////////////////////////
-@mixin huge-card-shadow-y($clr: rgb(0, 0, 0), $a1: .05, $a2: .08, $a3: .03, $strict: false) {
+@mixin huge-shadow-y($clr: rgb(0, 0, 0), $a1: .05, $a2: .08, $a3: .03, $strict: false) {
   @if ($strict) {
     box-shadow: 8px 8px 16px -3px rgba($clr, $a3),
                 16px 16px 24px -6px rgba($clr, $a1),

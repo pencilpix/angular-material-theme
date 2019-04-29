@@ -1,20 +1,15 @@
 @mixin adjust-size($size) {
-  width: $size;
-  min-width: $size;
-  height: $size;
-  min-height: $size;
-  line-height: $size;
+  width: pxToRem($size);
+  min-width: pxToRem($size);
+  height: pxToRem($size);
+  min-height: pxToRem($size);
+  line-height: pxToRem($size);
 }
-@mixin init-avatar-layout($theme) {
-  $sizes: get($theme, size);
-  $x: pxToRem(24);
-  $xx: pxToRem(32);
-  $xxx: pxToRem(42);
-  $xxxx: pxToRem(54);
 
 
+@mixin init-avatar-layout() {
   %avatar {
-    @include adjust-size($xx);
+    @include adjust-size(32);
     display: inline-block;
     vertical-align: middle;
     padding: 0;
@@ -29,7 +24,7 @@
     }
 
     &__icon {
-      @include adjust-size($xx);
+      @include adjust-size(32);
       text-align: center;
     }
 
@@ -43,17 +38,17 @@
 
     &--small,
     &--small %avatar__icon{
-      @include adjust-size($x);
+      @include adjust-size(24);
     }
 
     &--medium,
     &--medium %avatar__icon{
-      @include adjust-size($xxx);
+      @include adjust-size(42);
     }
 
     &--large,
     &--large %avatar__icon {
-      @include adjust-size($xxxx);
+      @include adjust-size(54);
     }
   }
 }

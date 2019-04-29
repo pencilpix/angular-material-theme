@@ -1,8 +1,0 @@
-@import './layout';
-@import './skin';
-
-@mixin init-error($theme) {
-  @include init-error-layout($theme);
-  @include init-error-skin($theme);
-}
-

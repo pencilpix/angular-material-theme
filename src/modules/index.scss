@@ -1,8 +1,0 @@
-@import './avatar/index';
-@import './error/index';
-
-@mixin init-modules($theme) {
-  @include init-avatar($theme);
-  @include init-error($theme);
-}
-
