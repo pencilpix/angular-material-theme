@@ -24,6 +24,18 @@
     &__spacer {
       flex: 1;
     }
+
+    &__fixed-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 2;
+    }
+
+    &__fixed-header + .p-layout__content {
+      padding-top: 64px;
+    }
   }
 }
 
