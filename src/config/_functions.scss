@@ -58,3 +58,98 @@
   }
   @return $result;
 }
+
+
+
+
+////////////////////////////////////////////////////////////
+// clears the fraction point by shifting 0 one digit to left.
+// @param {number} $fraction
+// @return {number}
+////////////////////////////////////////////////////////////
+@function convert-fraction-to-int($fraction) {
+  $value: $fraction * 10;
+  $value-int: floor($value);
+  $value-fraction: $value - $value-int;
+
+  @if($value-fraction > 0) {
+    @return convert-fraction-to-int($value);
+  }
+
+  @return $value;
+}
+
+////////////////////////////////////////////////////////////
+// pow-int: get exponent of an integer number
+// @param { number } $number the base number
+// @param { number } $exponent the power value
+// @return {number} calculated number.
+////////////////////////////////////////////////////////////
+@function pow-int($number, $exponent) {
+  $value: 1;
+
+  @if ($exponent == 0) {
+    @return 1;
+  } @else {
+    @for $i from 1 through abs($exponent) {
+      $value: $value * $number;
+    }
+  }
+
+  @if ($exponent < 0) {
+    @return 1 / $value;
+  }
+
+  @return $value;
+}
+
+
+////////////////////////////////////////////////////////////
+// pow: get exponent of a number / (number with unit)
+// positive nth-root for a given number
+// based on Newton's method
+// https://en.wikipedia.org/wiki/Newton%27s_method
+// it's proven using positive root
+// and modified to get negative root (not tested very well)
+// @param {number} $number
+// @param {number} $root-value
+// @return {number}
+////////////////////////////////////////////////////////////
+@function root($number, $root-value) {
+  $root: abs($root-value);
+  $x-0: random() * 10;
+  $accuracy: 0.001;
+  $max-number: 2147483647;
+  $x-k: 0;
+
+  @while ($max-number > $accuracy) {
+    $x-k: (($root - 1) * $x-0 + $number / pow-int($x-0, $root - 1)) / $root;
+    $max-number: abs($x-k - $x-0);
+    $x-0: $x-k;
+  }
+
+  @if ($root-value < 0) {
+    @return 1 / $x-k;
+  }
+
+  @return $x-k;
+}
+
+
+////////////////////////////////////////////////////////////
+// pow: get exponent of an integer number
+// @param { number } $number the base number
+// @param { number } $exponent the power value
+// @return {number} calculated number.
+////////////////////////////////////////////////////////////
+@function pow($number, $exponent) {
+  $exponent-int: floor($exponent);
+  $exponent-fraction: convert-fraction-to-int($exponent - $exponent-int);
+  $value: pow-int($number, $exponent-int);
+
+  @if ($exponent-fraction == 0) {
+    @return $value;
+  }
+
+  @return $value * root($value, $exponent-fraction);
+}
